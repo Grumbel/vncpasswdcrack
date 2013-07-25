@@ -3,12 +3,12 @@ vncpasswdcrack
 
 A deobfuscation tool for ~/.vnc/passwd.
 
-== Compile ==
+## Compile ##
 
     scons
 
-== Run ==
+## Run ##
 
     ./vncpasswdcrack ~/.vnc/passwd 
 
-# EOF #
+
