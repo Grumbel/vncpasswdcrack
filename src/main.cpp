@@ -49,7 +49,11 @@ int main(int argc, char** argv)
         unsigned char buf[8];
         deskey(d3desObfuscationKey, DE1);
         des(reinterpret_cast<unsigned char*>(content.data()), buf);
-        std::cout << argv[i] << ": ";
+
+        if (argc > 2) {
+          std::cout << argv[i] << ": ";
+        }
+
         std::cout.write(reinterpret_cast<char*>(buf), 8);
         std::cout << std::endl;
       }
