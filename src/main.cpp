@@ -1,15 +1,15 @@
 // Copyright (C) 2013 Ingo Ruhnke <grumbel@gmail.com>
-// 
+//
 // This is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation; either version 2 of the License, or
 // (at your option) any later version.
-// 
+//
 // This software is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU General Public License
 // along with this software; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307,
@@ -45,7 +45,7 @@ int main(int argc, char** argv)
       else
       {
         std::vector<char> content{std::istreambuf_iterator<char>{fin}, std::istreambuf_iterator<char>{}};
-    
+
         unsigned char buf[8];
         deskey(d3desObfuscationKey, DE1);
         des(reinterpret_cast<unsigned char*>(content.data()), buf);
