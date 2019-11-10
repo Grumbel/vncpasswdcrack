@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.0)
 project(vncpasswdcrack)
 
-set(WARNINGS 0 CACHE BOOL "Switch on extra warnings")
+option(WARNINGS "Switch on extra warnings" OFF)
+
+include(GNUInstallDirs)
 
 if(WARNINGS)
   set(WARNINGS_CXX_FLAGS
@@ -17,5 +19,8 @@ add_executable(vncpasswdcrack src/main.cpp)
 target_compile_options(vncpasswdcrack PRIVATE -std=c++11 ${WARNINGS_CXX_FLAGS})
 target_include_directories(vncpasswdcrack PRIVATE ${FREETYPE_INCLUDE_DIRS})
 target_link_libraries(vncpasswdcrack d3des)
+
+install(TARGETS vncpasswdcrack
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 # EOF #
