@@ -10,17 +10,21 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-      in rec {
-        packages = flake-utils.lib.flattenTree {
+      in {
+        packages = rec {
+          default = vncpasswdcrack;
+
           vncpasswdcrack = pkgs.stdenv.mkDerivation {
             pname = "vncpasswdcrack";
             version = "0.1.0";
+
             src = nixpkgs.lib.cleanSource ./.;
-            nativeBuildInputs = [
-              pkgs.cmake
+
+            nativeBuildInputs = with pkgs; [
+              cmake
             ];
            };
         };
-        defaultPackage = packages.vncpasswdcrack;
-      });
+      }
+    );
 }
